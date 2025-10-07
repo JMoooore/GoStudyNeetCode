@@ -5,10 +5,22 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 func initDb() (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", "./app.db")
+	// Get absolute path to the executable's directory
+	exePath, err := os.Executable()
+	if err != nil {
+		return nil, fmt.Errorf("get executable path: %w", err)
+	}
+	exeDir := filepath.Dir(exePath)
+
+	// Use absolute paths for database and seed file
+	dbPath := filepath.Join(exeDir, "app.db")
+	seedPath := filepath.Join(exeDir, "neetcode_150.json")
+
+	db, err := sql.Open("sqlite3", dbPath)
 	if err != nil {
 		return nil, fmt.Errorf("open database: %w", err)
 	}
@@ -23,7 +35,7 @@ func initDb() (*sql.DB, error) {
 	}
 
 	// Seed NeetCode 150 problems on first run (only if table is empty)
-	if err := seedNeetCodeFromJSON(db, "./neetcode_150.json"); err != nil {
+	if err := seedNeetCodeFromJSON(db, seedPath); err != nil {
 		// Seeding is best-effort; if file missing, just continue with a note
 		if !errors.Is(err, os.ErrNotExist) {
 			db.Close()
