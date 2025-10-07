@@ -1,0 +1,902 @@
+[
+  {
+    "title": "Contains Duplicate",
+    "difficulty": "Easy",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 217
+  },
+  {
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 242
+  },
+  {
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 1
+  },
+  {
+    "title": "Group Anagrams",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 49
+  },
+  {
+    "title": "Top K Frequent Elements",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 347
+  },
+  {
+    "title": "Product of Array Except Self",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 238
+  },
+  {
+    "title": "Valid Sudoku",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 36
+  },
+  {
+    "title": "Encode and Decode Strings",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 271
+  },
+  {
+    "title": "Longest Consecutive Sequence",
+    "difficulty": "Medium",
+    "grouping": "Arrays + Hashing",
+    "leetcode_number": 128
+  },
+  {
+    "title": "Valid Palindrome",
+    "difficulty": "Easy",
+    "grouping": "Two Pointers",
+    "leetcode_number": 125
+  },
+  {
+    "title": "Two Sum II Input Array Is Sorted",
+    "difficulty": "Medium",
+    "grouping": "Two Pointers",
+    "leetcode_number": 167
+  },
+  {
+    "title": "3Sum",
+    "difficulty": "Medium",
+    "grouping": "Two Pointers",
+    "leetcode_number": 15
+  },
+  {
+    "title": "Container With Most Water",
+    "difficulty": "Medium",
+    "grouping": "Two Pointers",
+    "leetcode_number": 11
+  },
+  {
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "grouping": "Two Pointers",
+    "leetcode_number": 42
+  },
+  {
+    "title": "Valid Parentheses",
+    "difficulty": "Easy",
+    "grouping": "Stack",
+    "leetcode_number": 20
+  },
+  {
+    "title": "Min Stack",
+    "difficulty": "Medium",
+    "grouping": "Stack",
+    "leetcode_number": 155
+  },
+  {
+    "title": "Evaluate Reverse Polish Notation",
+    "difficulty": "Medium",
+    "grouping": "Stack",
+    "leetcode_number": 150
+  },
+  {
+    "title": "Generate Parentheses",
+    "difficulty": "Medium",
+    "grouping": "Stack",
+    "leetcode_number": 22
+  },
+  {
+    "title": "Daily Temperatures",
+    "difficulty": "Medium",
+    "grouping": "Stack",
+    "leetcode_number": 739
+  },
+  {
+    "title": "Car Fleet",
+    "difficulty": "Medium",
+    "grouping": "Stack",
+    "leetcode_number": 853
+  },
+  {
+    "title": "Largest Rectangle In Histogram",
+    "difficulty": "Hard",
+    "grouping": "Stack",
+    "leetcode_number": 84
+  },
+  {
+    "title": "Binary Search",
+    "difficulty": "Easy",
+    "grouping": "Binary Search",
+    "leetcode_number": 704
+  },
+  {
+    "title": "Search a 2D Matrix",
+    "difficulty": "Medium",
+    "grouping": "Binary Search",
+    "leetcode_number": 74
+  },
+  {
+    "title": "Koko Eating Bananas",
+    "difficulty": "Medium",
+    "grouping": "Binary Search",
+    "leetcode_number": 875
+  },
+  {
+    "title": "Find Minimum In Rotated Sorted Array",
+    "difficulty": "Medium",
+    "grouping": "Binary Search",
+    "leetcode_number": 153
+  },
+  {
+    "title": "Search In Rotated Sorted Array",
+    "difficulty": "Medium",
+    "grouping": "Binary Search",
+    "leetcode_number": 33
+  },
+  {
+    "title": "Time Based Key Value Store",
+    "difficulty": "Medium",
+    "grouping": "Binary Search",
+    "leetcode_number": 981
+  },
+  {
+    "title": "Median of Two Sorted Arrays",
+    "difficulty": "Hard",
+    "grouping": "Binary Search",
+    "leetcode_number": 4
+  },
+  {
+    "title": "Best Time to Buy And Sell Stock",
+    "difficulty": "Easy",
+    "grouping": "Sliding Window",
+    "leetcode_number": 121
+  },
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "grouping": "Sliding Window",
+    "leetcode_number": 3
+  },
+  {
+    "title": "Longest Repeating Character Replacement",
+    "difficulty": "Medium",
+    "grouping": "Sliding Window",
+    "leetcode_number": 424
+  },
+  {
+    "title": "Permutation In String",
+    "difficulty": "Medium",
+    "grouping": "Sliding Window",
+    "leetcode_number": 567
+  },
+  {
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "grouping": "Sliding Window",
+    "leetcode_number": 76
+  },
+  {
+    "title": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "grouping": "Sliding Window",
+    "leetcode_number": 239
+  },
+  {
+    "title": "Reverse Linked List",
+    "difficulty": "Easy",
+    "grouping": "Linked List",
+    "leetcode_number": 206
+  },
+  {
+    "title": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "grouping": "Linked List",
+    "leetcode_number": 21
+  },
+  {
+    "title": "Reorder List",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 143
+  },
+  {
+    "title": "Remove Nth Node From End of List",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 19
+  },
+  {
+    "title": "Copy List With Random Pointer",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 138
+  },
+  {
+    "title": "Add Two Numbers",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 2
+  },
+  {
+    "title": "Linked List Cycle",
+    "difficulty": "Easy",
+    "grouping": "Linked List",
+    "leetcode_number": 141
+  },
+  {
+    "title": "Find The Duplicate Number",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 287
+  },
+  {
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "grouping": "Linked List",
+    "leetcode_number": 146
+  },
+  {
+    "title": "Merge K Sorted Lists",
+    "difficulty": "Hard",
+    "grouping": "Linked List",
+    "leetcode_number": 23
+  },
+  {
+    "title": "Reverse Nodes In K Group",
+    "difficulty": "Hard",
+    "grouping": "Linked List",
+    "leetcode_number": 25
+  },
+  {
+    "title": "Invert Binary Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 226
+  },
+  {
+    "title": "Maximum Depth of Binary Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 104
+  },
+  {
+    "title": "Diameter of Binary Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 543
+  },
+  {
+    "title": "Balanced Binary Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 110
+  },
+  {
+    "title": "Same Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 100
+  },
+  {
+    "title": "Subtree of Another Tree",
+    "difficulty": "Easy",
+    "grouping": "Trees",
+    "leetcode_number": 572
+  },
+  {
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 235
+  },
+  {
+    "title": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 102
+  },
+  {
+    "title": "Binary Tree Right Side View",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 199
+  },
+  {
+    "title": "Count Good Nodes In Binary Tree",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 1448
+  },
+  {
+    "title": "Validate Binary Search Tree",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 98
+  },
+  {
+    "title": "Kth Smallest Element In a Bst",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 230
+  },
+  {
+    "title": "Construct Binary Tree From Preorder And Inorder Traversal",
+    "difficulty": "Medium",
+    "grouping": "Trees",
+    "leetcode_number": 105
+  },
+  {
+    "title": "Binary Tree Maximum Path Sum",
+    "difficulty": "Hard",
+    "grouping": "Trees",
+    "leetcode_number": 124
+  },
+  {
+    "title": "Serialize And Deserialize Binary Tree",
+    "difficulty": "Hard",
+    "grouping": "Trees",
+    "leetcode_number": 297
+  },
+  {
+    "title": "Implement Trie Prefix Tree",
+    "difficulty": "Medium",
+    "grouping": "Tries",
+    "leetcode_number": 208
+  },
+  {
+    "title": "Design Add And Search Words Data Structure",
+    "difficulty": "Medium",
+    "grouping": "Tries",
+    "leetcode_number": 211
+  },
+  {
+    "title": "Word Search II",
+    "difficulty": "Hard",
+    "grouping": "Tries",
+    "leetcode_number": 212
+  },
+  {
+    "title": "Kth Largest Element In a Stream",
+    "difficulty": "Easy",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 703
+  },
+  {
+    "title": "Last Stone Weight",
+    "difficulty": "Easy",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 1046
+  },
+  {
+    "title": "K Closest Points to Origin",
+    "difficulty": "Medium",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 973
+  },
+  {
+    "title": "Kth Largest Element In An Array",
+    "difficulty": "Medium",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 215
+  },
+  {
+    "title": "Task Scheduler",
+    "difficulty": "Medium",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 621
+  },
+  {
+    "title": "Design Twitter",
+    "difficulty": "Medium",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 355
+  },
+  {
+    "title": "Find Median From Data Stream",
+    "difficulty": "Hard",
+    "grouping": "Heap / Priority Queue",
+    "leetcode_number": 295
+  },
+  {
+    "title": "Subsets",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 78
+  },
+  {
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 39
+  },
+  {
+    "title": "Permutations",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 46
+  },
+  {
+    "title": "Subsets II",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 90
+  },
+  {
+    "title": "Combination Sum II",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 40
+  },
+  {
+    "title": "Word Search",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 79
+  },
+  {
+    "title": "Palindrome Partitioning",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 131
+  },
+  {
+    "title": "Letter Combinations of a Phone Number",
+    "difficulty": "Medium",
+    "grouping": "Backtracking",
+    "leetcode_number": 17
+  },
+  {
+    "title": "N Queens",
+    "difficulty": "Hard",
+    "grouping": "Backtracking",
+    "leetcode_number": 51
+  },
+  {
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 200
+  },
+  {
+    "title": "Clone Graph",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 133
+  },
+  {
+    "title": "Max Area of Island",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 695
+  },
+  {
+    "title": "Pacific Atlantic Water Flow",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 417
+  },
+  {
+    "title": "Surrounded Regions",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 130
+  },
+  {
+    "title": "Rotting Oranges",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 994
+  },
+  {
+    "title": "Walls And Gates",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 286
+  },
+  {
+    "title": "Course Schedule",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 207
+  },
+  {
+    "title": "Course Schedule II",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 210
+  },
+  {
+    "title": "Redundant Connection",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 684
+  },
+  {
+    "title": "Number of Connected Components In An Undirected Graph",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 323
+  },
+  {
+    "title": "Graph Valid Tree",
+    "difficulty": "Medium",
+    "grouping": "Graphs",
+    "leetcode_number": 261
+  },
+  {
+    "title": "Word Ladder",
+    "difficulty": "Hard",
+    "grouping": "Graphs",
+    "leetcode_number": 127
+  },
+  {
+    "title": "Reconstruct Itinerary",
+    "difficulty": "Hard",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 332
+  },
+  {
+    "title": "Min Cost to Connect All Points",
+    "difficulty": "Medium",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 1584
+  },
+  {
+    "title": "Network Delay Time",
+    "difficulty": "Medium",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 743
+  },
+  {
+    "title": "Swim In Rising Water",
+    "difficulty": "Hard",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 778
+  },
+  {
+    "title": "Alien Dictionary",
+    "difficulty": "Hard",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 269
+  },
+  {
+    "title": "Cheapest Flights Within K Stops",
+    "difficulty": "Medium",
+    "grouping": "Advanced Graphs",
+    "leetcode_number": 787
+  },
+  {
+    "title": "Climbing Stairs",
+    "difficulty": "Easy",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 70
+  },
+  {
+    "title": "Min Cost Climbing Stairs",
+    "difficulty": "Easy",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 746
+  },
+  {
+    "title": "House Robber",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 198
+  },
+  {
+    "title": "House Robber II",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 213
+  },
+  {
+    "title": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 5
+  },
+  {
+    "title": "Palindromic Substrings",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 647
+  },
+  {
+    "title": "Decode Ways",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 91
+  },
+  {
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 322
+  },
+  {
+    "title": "Maximum Product Subarray",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 152
+  },
+  {
+    "title": "Word Break",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 139
+  },
+  {
+    "title": "Longest Increasing Subsequence",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 300
+  },
+  {
+    "title": "Partition Equal Subset Sum",
+    "difficulty": "Medium",
+    "grouping": "1-D Dynamic Programming",
+    "leetcode_number": 416
+  },
+  {
+    "title": "Unique Paths",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 62
+  },
+  {
+    "title": "Longest Common Subsequence",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 1143
+  },
+  {
+    "title": "Best Time to Buy And Sell Stock With Cooldown",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 309
+  },
+  {
+    "title": "Coin Change II",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 518
+  },
+  {
+    "title": "Target Sum",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 494
+  },
+  {
+    "title": "Interleaving String",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 97
+  },
+  {
+    "title": "Longest Increasing Path In a Matrix",
+    "difficulty": "Hard",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 329
+  },
+  {
+    "title": "Distinct Subsequences",
+    "difficulty": "Hard",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 115
+  },
+  {
+    "title": "Edit Distance",
+    "difficulty": "Medium",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 72
+  },
+  {
+    "title": "Burst Balloons",
+    "difficulty": "Hard",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 312
+  },
+  {
+    "title": "Regular Expression Matching",
+    "difficulty": "Hard",
+    "grouping": "2-D Dynamic Programming",
+    "leetcode_number": 10
+  },
+  {
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 53
+  },
+  {
+    "title": "Jump Game",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 55
+  },
+  {
+    "title": "Jump Game II",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 45
+  },
+  {
+    "title": "Gas Station",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 134
+  },
+  {
+    "title": "Hand of Straights",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 846
+  },
+  {
+    "title": "Merge Triplets to Form Target Triplet",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 1899
+  },
+  {
+    "title": "Partition Labels",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 763
+  },
+  {
+    "title": "Valid Parenthesis String",
+    "difficulty": "Medium",
+    "grouping": "Greedy",
+    "leetcode_number": 678
+  },
+  {
+    "title": "Insert Interval",
+    "difficulty": "Medium",
+    "grouping": "Intervals",
+    "leetcode_number": 57
+  },
+  {
+    "title": "Merge Intervals",
+    "difficulty": "Medium",
+    "grouping": "Intervals",
+    "leetcode_number": 56
+  },
+  {
+    "title": "Non Overlapping Intervals",
+    "difficulty": "Medium",
+    "grouping": "Intervals",
+    "leetcode_number": 435
+  },
+  {
+    "title": "Meeting Rooms",
+    "difficulty": "Easy",
+    "grouping": "Intervals",
+    "leetcode_number": 252
+  },
+  {
+    "title": "Meeting Rooms II",
+    "difficulty": "Medium",
+    "grouping": "Intervals",
+    "leetcode_number": 253
+  },
+  {
+    "title": "Minimum Interval to Include Each Query",
+    "difficulty": "Hard",
+    "grouping": "Intervals",
+    "leetcode_number": 1851
+  },
+  {
+    "title": "Rotate Image",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 48
+  },
+  {
+    "title": "Spiral Matrix",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 54
+  },
+  {
+    "title": "Set Matrix Zeroes",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 73
+  },
+  {
+    "title": "Happy Number",
+    "difficulty": "Easy",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 202
+  },
+  {
+    "title": "Plus One",
+    "difficulty": "Easy",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 66
+  },
+  {
+    "title": "Pow(x, n)",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 50
+  },
+  {
+    "title": "Multiply Strings",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 43
+  },
+  {
+    "title": "Detect Squares",
+    "difficulty": "Medium",
+    "grouping": "Math + Geometry",
+    "leetcode_number": 2013
+  },
+  {
+    "title": "Single Number",
+    "difficulty": "Easy",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 136
+  },
+  {
+    "title": "Number of 1 Bits",
+    "difficulty": "Easy",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 191
+  },
+  {
+    "title": "Counting Bits",
+    "difficulty": "Easy",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 338
+  },
+  {
+    "title": "Reverse Bits",
+    "difficulty": "Easy",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 190
+  },
+  {
+    "title": "Missing Number",
+    "difficulty": "Easy",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 268
+  },
+  {
+    "title": "Sum of Two Integers",
+    "difficulty": "Medium",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 371
+  },
+  {
+    "title": "Reverse Integer",
+    "difficulty": "Medium",
+    "grouping": "Bit Manipulation",
+    "leetcode_number": 7
+  }
+]
