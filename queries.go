@@ -40,9 +40,9 @@ func selectStudyProblems(db *sql.DB, difficulty string, count int) ([]Problem, e
 
 func buildStudyQuery(difficulty string) string {
 	// Prioritizes:
-	// 1. Problems due for review (next_review_date <= now)
-	// 2. Never attempted problems
-	// 3. Ordered by next_review_date (oldest first)
+	// 1. Reviews due today or past (next_review_date <= now) - oldest first
+	// 2. Never attempted problems (new)
+	// 3. Reviews upcoming (next_review_date > now) - nearest first
 	query := `
 		SELECT p.title, p.difficulty, p.grouping, p.leetcode_number
 		FROM problems p
@@ -51,13 +51,19 @@ func buildStudyQuery(difficulty string) string {
 			FROM completions
 			GROUP BY problem_id
 		) c ON p.id = c.problem_id
-		WHERE (c.next_review_date IS NULL OR c.next_review_date <= datetime('now'))
 	`
 
 	if difficulty != "any" {
-		query += " AND LOWER(p.difficulty) = LOWER(?)"
+		query += " WHERE LOWER(p.difficulty) = LOWER(?)"
 	}
 
-	query += " ORDER BY c.next_review_date IS NULL DESC, c.next_review_date ASC LIMIT ?"
+	query += ` ORDER BY
+		CASE
+			WHEN c.next_review_date <= datetime('now') THEN 1
+			WHEN c.next_review_date IS NULL THEN 2
+			ELSE 3
+		END,
+		c.next_review_date ASC
+		LIMIT ?`
 	return query
 }
