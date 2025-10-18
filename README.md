@@ -69,7 +69,8 @@ Launch the interactive study session:
 Once inside the REPL, you can:
 - **`study`** - Start reviewing problems due for practice
 - **`help`** - Display all available commands
-- **`review`** - View your progress and statistics
+- **`review`** - View your progress on individual problems
+- **`stat`** - View your overall progress and statistics including completion estimate
 - **`exit`** - Save and exit the application
 
 The spaced repetition algorithm automatically determines which problems you should review based on your past performance.
