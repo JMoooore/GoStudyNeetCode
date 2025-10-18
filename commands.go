@@ -220,5 +220,12 @@ func getCommands(db *sql.DB) map[string]CliCommand {
 				return reviewCommandWithDB(db, args)
 			},
 		},
+		"stat": {
+			Name:        "stat",
+			Description: "View your overall study statistics",
+			Callback: func(args []string) error {
+				return statCommandWithDB(db, args)
+			},
+		},
 	}
 }
