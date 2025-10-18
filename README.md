@@ -58,6 +58,28 @@ go build
 go install github.com/JMoooore/GoStudyNeetCode@latest
 ```
 
+### Optional: Create an Alias
+
+For quicker access, add an alias to your shell configuration file (`~/.bashrc`, `~/.zshrc`, etc.):
+
+```bash
+# If you built locally
+alias neetcode='/path/to/GoStudyNeetCode/GoStudyNeetCode'
+
+# Or if you used go install (ensure $GOPATH/bin or $HOME/go/bin is in your PATH)
+alias neetcode='GoStudyNeetCode'
+```
+
+After adding the alias, reload your shell configuration:
+```bash
+source ~/.zshrc  # or ~/.bashrc
+```
+
+Then you can simply run:
+```bash
+neetcode
+```
+
 ## 📖 Usage
 
 Launch the interactive study session:
