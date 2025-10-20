@@ -105,9 +105,9 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 	reviewQuery := `
 		SELECT
 			CASE
-				WHEN julianday(c.next_review_date) - julianday(date('now')) < 0 THEN 'overdue'
-				WHEN julianday(c.next_review_date) - julianday(date('now')) = 0 THEN 'today'
-				WHEN julianday(c.next_review_date) - julianday(date('now')) <= 3 THEN 'upcoming'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) < 0 THEN 'overdue'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) = 0 THEN 'today'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) <= 3 THEN 'upcoming'
 				ELSE 'future'
 			END as status,
 			COUNT(*) as count

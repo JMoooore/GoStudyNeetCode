@@ -59,11 +59,15 @@ func buildStudyQuery(difficulty string) string {
 
 	query += ` ORDER BY
 		CASE
-			WHEN c.next_review_date <= datetime('now') THEN 1
+			WHEN date(c.next_review_date) <= date('now') THEN 1
 			WHEN c.next_review_date IS NULL THEN 2
 			ELSE 3
 		END,
-		c.next_review_date ASC
+		CASE
+			WHEN date(c.next_review_date) <= date('now') THEN c.next_review_date
+			ELSE NULL
+		END ASC,
+		RANDOM()
 		LIMIT ?`
 	return query
 }

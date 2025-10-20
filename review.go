@@ -27,7 +27,7 @@ func getReviewHistory(db *sql.DB, difficulty string) ([]ReviewInfo, error) {
 			c.next_review_date,
 			c.repetitions,
 			c.easiness_factor,
-			CAST((julianday(c.next_review_date) - julianday(date('now'))) AS INTEGER) as days_until
+			CAST((julianday(date(c.next_review_date)) - julianday(date('now'))) AS INTEGER) as days_until
 		FROM problems p
 		LEFT JOIN (
 			SELECT
