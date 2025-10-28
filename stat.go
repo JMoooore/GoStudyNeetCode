@@ -28,6 +28,11 @@ type OverallStats struct {
 	DueTodayReviews    int
 	UpcomingReviews    int // Due within 3 days
 
+	// Today's activity
+	CompletedToday      []string // Problem titles completed today
+	FirstCompletions    []string // First-time completions today
+	ReviewCompletions   []string // Review completions today
+
 	// Projection stats
 	EstimatedDaysToComplete int // At 3 problems/day
 	EstimatedCompletionDate string
@@ -105,9 +110,9 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 	reviewQuery := `
 		SELECT
 			CASE
-				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) < 0 THEN 'overdue'
-				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) = 0 THEN 'today'
-				WHEN julianday(date(c.next_review_date)) - julianday(date('now')) <= 3 THEN 'upcoming'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now', 'localtime')) < 0 THEN 'overdue'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now', 'localtime')) = 0 THEN 'today'
+				WHEN julianday(date(c.next_review_date)) - julianday(date('now', 'localtime')) <= 3 THEN 'upcoming'
 				ELSE 'future'
 			END as status,
 			COUNT(*) as count
@@ -143,6 +148,44 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 	}
 
 	stats.ProblemsNeedReview = stats.OverdueReviews + stats.DueTodayReviews + stats.UpcomingReviews
+
+	// Get problems completed today
+	todayQuery := `
+		SELECT
+			p.title,
+			c.repetitions,
+			(SELECT COUNT(*)
+			 FROM completions
+			 WHERE problem_id = c.problem_id
+			 AND completed_at < c.completed_at) as previous_completions
+		FROM completions c
+		INNER JOIN problems p ON p.id = c.problem_id
+		WHERE date(c.completed_at, 'localtime') = date('now', 'localtime')
+		ORDER BY c.completed_at DESC
+	`
+	rows, err = db.Query(todayQuery)
+	if err != nil {
+		return nil, fmt.Errorf("query today's completions: %w", err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var title string
+		var repetitions int
+		var previousCompletions int
+		if err := rows.Scan(&title, &repetitions, &previousCompletions); err != nil {
+			return nil, err
+		}
+		stats.CompletedToday = append(stats.CompletedToday, title)
+
+		// A problem is a first completion only if there are no previous completions
+		// Don't rely on repetitions counter since it can be reset to 0 when marked as "Hard"
+		if previousCompletions == 0 {
+			stats.FirstCompletions = append(stats.FirstCompletions, title)
+		} else {
+			stats.ReviewCompletions = append(stats.ReviewCompletions, title)
+		}
+	}
 
 	// Calculate estimated days to complete
 	// Assumption: 3 problems per day total (including both new problems and reviews)
@@ -211,6 +254,33 @@ func statCommandWithDB(db *sql.DB, args []string) error {
 	fmt.Printf("  \033[31mHard:\033[0m     %3d / %-3d (%5.1f%%)  %s\n",
 		stats.HardCompleted, stats.HardTotal, hardPercent, progressBar(hardPercent, "red"))
 	fmt.Println()
+
+	// Today's Activity
+	fmt.Println("Today's Activity:")
+	fmt.Println("─────────────────────────────────────────────────────────")
+	totalToday := len(stats.CompletedToday)
+	if totalToday == 0 {
+		fmt.Println("  No problems completed today yet")
+	} else {
+		fmt.Printf("  Total completed today: %d\n", totalToday)
+		fmt.Println()
+
+		if len(stats.FirstCompletions) > 0 {
+			fmt.Printf("  \033[32m✨ First Completions (%d):\033[0m\n", len(stats.FirstCompletions))
+			for _, title := range stats.FirstCompletions {
+				fmt.Printf("    • %s\n", title)
+			}
+			fmt.Println()
+		}
+
+		if len(stats.ReviewCompletions) > 0 {
+			fmt.Printf("  \033[36m🔄 Reviews (%d):\033[0m\n", len(stats.ReviewCompletions))
+			for _, title := range stats.ReviewCompletions {
+				fmt.Printf("    • %s\n", title)
+			}
+			fmt.Println()
+		}
+	}
 
 	// Review Status
 	fmt.Println("Review Status:")

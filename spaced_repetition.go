@@ -82,8 +82,8 @@ func calculateSM2(effortRating int, lastEF float64, lastInterval, lastReps int) 
 
 func insertCompletion(db *sql.DB, problemID, effortRating, interval int, ef float64, reps int) error {
 	_, err := db.Exec(`
-		INSERT INTO completions (problem_id, effort_rating, interval_days, easiness_factor, repetitions, next_review_date)
-		VALUES (?, ?, ?, ?, ?, datetime('now', '+' || ? || ' days'))
+		INSERT INTO completions (problem_id, effort_rating, interval_days, easiness_factor, repetitions, next_review_date, completed_at)
+		VALUES (?, ?, ?, ?, ?, datetime('now', 'localtime', '+' || ? || ' days'), datetime('now', 'localtime'))
 	`, problemID, effortRating, interval, ef, reps, interval)
 	return err
 }
