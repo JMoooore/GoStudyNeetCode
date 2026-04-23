@@ -30,16 +30,15 @@ func getReviewHistory(db *sql.DB, difficulty string) ([]ReviewInfo, error) {
 			CAST((julianday(date(c.next_review_date)) - julianday(date('now', 'localtime'))) AS INTEGER) as days_until
 		FROM problems p
 		LEFT JOIN (
-			SELECT
-				problem_id,
-				MAX(completed_at) as completed_at,
-				next_review_date,
-				repetitions,
-				easiness_factor
-			FROM completions
-			GROUP BY problem_id
+			SELECT problem_id, completed_at, next_review_date, repetitions, easiness_factor
+			FROM (
+				SELECT problem_id, completed_at, next_review_date, repetitions, easiness_factor,
+					ROW_NUMBER() OVER (PARTITION BY problem_id ORDER BY completed_at DESC) as rn
+				FROM completions
+			)
+			WHERE rn = 1
 		) c ON p.id = c.problem_id
-		WHERE c.completed_at IS NOT NULL
+		WHERE c.completed_at IS NOT NULL AND p.archived = 0
 	`
 
 	if difficulty != "any" {

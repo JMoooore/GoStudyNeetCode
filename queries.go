@@ -7,16 +7,23 @@ import (
 
 // ==================== Problem Queries ====================
 
-func selectStudyProblems(db *sql.DB, difficulty string, count int) ([]Problem, error) {
-	query := buildStudyQuery(difficulty)
+func selectStudyProblems(db *sql.DB, difficulty string, category string, count int) ([]Problem, error) {
+	query := buildStudyQuery(difficulty, category)
 
 	var rows *sql.Rows
 	var err error
-	if difficulty == "any" {
-		rows, err = db.Query(query, count)
-	} else {
-		rows, err = db.Query(query, difficulty, count)
+	
+	// Build args based on what filters are used
+	args := []interface{}{}
+	if difficulty != "any" {
+		args = append(args, difficulty)
 	}
+	if category != "any" {
+		args = append(args, category)
+	}
+	args = append(args, count)
+	
+	rows, err = db.Query(query, args...)
 	if err != nil {
 		return nil, err
 	}
@@ -25,7 +32,7 @@ func selectStudyProblems(db *sql.DB, difficulty string, count int) ([]Problem, e
 	var problems []Problem
 	for rows.Next() {
 		var p Problem
-		if err := rows.Scan(&p.Title, &p.Difficulty, &p.Grouping, &p.LeetcodeNumber); err != nil {
+		if err := rows.Scan(&p.Title, &p.Difficulty, &p.Grouping, &p.LeetcodeNumber, &p.Category); err != nil {
 			return nil, fmt.Errorf("scan problem: %w", err)
 		}
 		problems = append(problems, p)
@@ -38,23 +45,34 @@ func selectStudyProblems(db *sql.DB, difficulty string, count int) ([]Problem, e
 	return problems, nil
 }
 
-func buildStudyQuery(difficulty string) string {
+func buildStudyQuery(difficulty string, category string) string {
 	// Prioritizes:
 	// 1. Reviews due today or past (next_review_date <= now) - oldest first
 	// 2. Never attempted problems (new)
 	// 3. Reviews upcoming (next_review_date > now) - nearest first
 	query := `
-		SELECT p.title, p.difficulty, p.grouping, p.leetcode_number
+		SELECT p.title, p.difficulty, p.grouping, p.leetcode_number, p.category
 		FROM problems p
 		LEFT JOIN (
-			SELECT problem_id, MAX(completed_at) as last_completion, next_review_date
-			FROM completions
-			GROUP BY problem_id
+			SELECT problem_id, completed_at as last_completion, next_review_date
+			FROM (
+				SELECT problem_id, completed_at, next_review_date,
+					ROW_NUMBER() OVER (PARTITION BY problem_id ORDER BY completed_at DESC) as rn
+				FROM completions
+			)
+			WHERE rn = 1
 		) c ON p.id = c.problem_id
+		WHERE p.archived = 0
 	`
 
+	// Add difficulty filter
 	if difficulty != "any" {
-		query += " WHERE LOWER(p.difficulty) = LOWER(?)"
+		query += " AND LOWER(p.difficulty) = LOWER(?)"
+	}
+	
+	// Add category filter
+	if category != "any" {
+		query += " AND LOWER(p.category) = LOWER(?)"
 	}
 
 	query += ` ORDER BY

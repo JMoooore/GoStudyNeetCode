@@ -15,7 +15,11 @@ func startRepl(db *sql.DB) {
 
 	for {
 		fmt.Print("GoStudy > ")
-		reader.Scan()
+		if !reader.Scan() {
+			fmt.Println()
+			exitCommand(nil)
+			return
+		}
 
 		input := reader.Text()
 		parts := strings.Fields(input)

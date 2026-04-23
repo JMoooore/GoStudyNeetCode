@@ -1,0 +1,119 @@
+[
+  {
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Caching",
+    "leetcode_number": 146,
+    "category": "data_structures",
+    "note": "Also in NeetCode 150 (LeetCode 146)"
+  },
+  {
+    "title": "Min Stack",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Stack",
+    "leetcode_number": 155,
+    "category": "data_structures",
+    "note": "Also in NeetCode 150 (LeetCode 155)"
+  },
+  {
+    "title": "Time-Based Key-Value Store",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Key-Value Store",
+    "leetcode_number": 981,
+    "category": "data_structures",
+    "note": "Also in NeetCode 150 (LeetCode 981)"
+  },
+  {
+    "title": "Trie (Prefix Tree)",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Tree",
+    "leetcode_number": 208,
+    "category": "data_structures",
+    "note": "Also in NeetCode 150 (LeetCode 208 - Implement Trie Prefix Tree)"
+  },
+  {
+    "title": "Randomized Set",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Set",
+    "leetcode_number": 380,
+    "category": "data_structures"
+  },
+  {
+    "title": "Consistent Hashing",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Distributed Systems",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Bloom Filter",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Distributed Systems",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Rate Limiter (Token Bucket)",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Distributed Systems",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Rate Limiter (Leaky Bucket)",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Distributed Systems",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Skip List",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Advanced",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Circular Buffer",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Buffer",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Segment Tree",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Tree",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Fenwick Tree (Binary Indexed Tree)",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Tree",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Union-Find (Disjoint Set Union)",
+    "difficulty": "Medium",
+    "grouping": "Data Structures - Graph",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "Merkle Tree",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Distributed Systems",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  },
+  {
+    "title": "B+ Tree",
+    "difficulty": "Hard",
+    "grouping": "Data Structures - Tree",
+    "leetcode_number": 0,
+    "category": "data_structures"
+  }
+]
+

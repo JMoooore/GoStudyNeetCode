@@ -21,6 +21,7 @@ type OverallStats struct {
 	MediumCompleted int
 	HardTotal       int
 	HardCompleted   int
+	ArchivedCount   int
 
 	// Review stats
 	ProblemsNeedReview int
@@ -29,9 +30,9 @@ type OverallStats struct {
 	UpcomingReviews    int // Due within 3 days
 
 	// Today's activity
-	CompletedToday      []string // Problem titles completed today
-	FirstCompletions    []string // First-time completions today
-	ReviewCompletions   []string // Review completions today
+	CompletedToday    []string // Problem titles completed today
+	FirstCompletions  []string // First-time completions today
+	ReviewCompletions []string // Review completions today
 
 	// Projection stats
 	EstimatedDaysToComplete int // At 3 problems/day
@@ -41,7 +42,7 @@ type OverallStats struct {
 func getOverallStats(db *sql.DB) (*OverallStats, error) {
 	stats := &OverallStats{}
 
-	// Get total problems by difficulty
+	// Get total problems by difficulty (include archived in totals)
 	diffQuery := `
 		SELECT
 			LOWER(difficulty) as diff,
@@ -72,13 +73,15 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 		}
 	}
 
-	// Get completed problems by difficulty
+	// Get completed problems by difficulty (including archived as completed)
 	completedQuery := `
 		SELECT
 			LOWER(p.difficulty) as diff,
 			COUNT(DISTINCT p.id) as completed
 		FROM problems p
-		INNER JOIN completions c ON p.id = c.problem_id
+		WHERE p.archived = 1 OR EXISTS (
+			SELECT 1 FROM completions c WHERE c.problem_id = p.id
+		)
 		GROUP BY LOWER(p.difficulty)
 	`
 	rows, err = db.Query(completedQuery)
@@ -106,6 +109,32 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 
 	stats.RemainingProblems = stats.TotalProblems - stats.CompletedProblems
 
+	// Get archived problems count by difficulty
+	archivedQuery := `
+		SELECT
+			LOWER(difficulty) as diff,
+			COUNT(*) as archived_count
+		FROM problems
+		WHERE archived = 1
+		GROUP BY LOWER(difficulty)
+	`
+	rows, err = db.Query(archivedQuery)
+	if err != nil {
+		return nil, fmt.Errorf("query archived problems: %w", err)
+	}
+	defer rows.Close()
+
+	archivedByDiff := make(map[string]int)
+	for rows.Next() {
+		var diff string
+		var archivedCount int
+		if err := rows.Scan(&diff, &archivedCount); err != nil {
+			return nil, err
+		}
+		archivedByDiff[diff] = archivedCount
+		stats.ArchivedCount += archivedCount
+	}
+
 	// Get review status counts
 	reviewQuery := `
 		SELECT
@@ -118,11 +147,15 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 			COUNT(*) as count
 		FROM problems p
 		INNER JOIN (
-			SELECT problem_id, MAX(completed_at) as max_completed, next_review_date
-			FROM completions
-			GROUP BY problem_id
+			SELECT problem_id, completed_at as max_completed, next_review_date
+			FROM (
+				SELECT problem_id, completed_at, next_review_date,
+					ROW_NUMBER() OVER (PARTITION BY problem_id ORDER BY completed_at DESC) as rn
+				FROM completions
+			)
+			WHERE rn = 1
 		) c ON p.id = c.problem_id
-		WHERE c.next_review_date IS NOT NULL
+		WHERE c.next_review_date IS NOT NULL AND p.archived = 0
 		GROUP BY status
 	`
 	rows, err = db.Query(reviewQuery)
@@ -160,7 +193,7 @@ func getOverallStats(db *sql.DB) (*OverallStats, error) {
 			 AND completed_at < c.completed_at) as previous_completions
 		FROM completions c
 		INNER JOIN problems p ON p.id = c.problem_id
-		WHERE date(c.completed_at, 'localtime') = date('now', 'localtime')
+		WHERE date(c.completed_at, 'localtime') = date('now', 'localtime') AND p.archived = 0
 		ORDER BY c.completed_at DESC
 	`
 	rows, err = db.Query(todayQuery)
@@ -253,6 +286,11 @@ func statCommandWithDB(db *sql.DB, args []string) error {
 	}
 	fmt.Printf("  \033[31mHard:\033[0m     %3d / %-3d (%5.1f%%)  %s\n",
 		stats.HardCompleted, stats.HardTotal, hardPercent, progressBar(hardPercent, "red"))
+
+	// Archived (counted as completed)
+	if stats.ArchivedCount > 0 {
+		fmt.Printf("  \033[34mArchived:\033[0m %3d removed from rotation (counted as completed)\n", stats.ArchivedCount)
+	}
 	fmt.Println()
 
 	// Today's Activity

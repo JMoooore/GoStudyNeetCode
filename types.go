@@ -2,6 +2,7 @@ package main
 
 type CliCommand struct {
 	Name        string
+	Aliases     []string
 	Description string
 	Callback    func(args []string) error
 }
@@ -11,4 +12,5 @@ type Problem struct {
 	Difficulty     string `json:"difficulty"`
 	Grouping       string `json:"grouping"`
 	LeetcodeNumber int    `json:"leetcode_number"`
+	Category       string `json:"category"` // "neetcode" or "data_structures"
 }
